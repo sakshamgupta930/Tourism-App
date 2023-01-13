@@ -4,15 +4,17 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tourism_app/widgets/text_field_input.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _repassController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
   bool _isLoading = false;
   bool _ispassVisible = true;
@@ -27,6 +29,8 @@ class _LoginScreenState extends State<LoginScreen> {
   void dispose() {
     _emailController.dispose();
     _passController.dispose();
+    _nameController.dispose();
+    _repassController.dispose();
     super.dispose();
   }
 
@@ -49,20 +53,28 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Lottie.asset("animations/hello.json", width: 250),
+                Lottie.asset("animations/signup.json", width: 250),
                 const SizedBox(
                   height: 15,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text("Login", style: TextStyle(fontSize: 40),),
+                    Text(
+                      "Signup",
+                      style: TextStyle(fontSize: 40),
+                    ),
                   ],
                 ),
                 TextFieldInput(
                   textEditingController: _emailController,
+                  LabelText: "Name",
+                  textInputType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: 24,),
+                TextFieldInput(
+                  textEditingController: _emailController,
                   LabelText: "Email ID",
-                  // hintText: "Enter Your Email",
                   textInputType: TextInputType.emailAddress,
                 ),
                 const SizedBox(
@@ -90,26 +102,47 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                       )),
                 ),
+                SizedBox(height: 24,),
+                TextFormField(
+                  keyboardType: TextInputType.text,
+                  controller: _passController,
+                  obscureText: !_ispassVisible,
+                  decoration: InputDecoration(
+                      labelText: 'Confirm Password',
+                      // hintText: 'Enter your password',
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _ispassVisible
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _ispassVisible = !_ispassVisible;
+                          });
+                        },
+                      )),
+                ),
                 const SizedBox(
                   height: 24,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    InkWell(
-                      onTap: (){},
-                      child: Text(
-                        "Forgot Password ?",
-                        style: TextStyle(
-                            color: Colors.blueAccent,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                  ],
                 ),
                 SizedBox(
                   height: 15,
                 ),
+                
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text("By signing up you're agree to our ", style: TextStyle(fontSize: 10, color: Colors.black.withOpacity(0.9)),),
+                        Text("Terms & Conditions", style: TextStyle(fontSize: 10, color: Colors.blueAccent),), Text(" and ", style: TextStyle(fontSize: 10, color: Colors.black.withOpacity(0.9)),)
+                      ],
+                    ),
+                    Text("Privacy Policy", style: TextStyle(fontSize: 10, color: Colors.blueAccent),)
+                  ],
+                ),
+                SizedBox(height: 20,),
                 InkWell(
                   onTap: (() {}),
                   child: Container(
@@ -122,50 +155,26 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
                     ),
-                    child: Text("Log In"),
+                    child: Text("Continue"),
                   ),
                 ),
-                const SizedBox(
+                
+                SizedBox(
                   height: 18,
                 ),
-                Row(children: <Widget>[
-                  Expanded(child: Divider()),
-                  Text("OR"),
-                  Expanded(child: Divider()),
-                ]),
-                SizedBox(height: 18,),
-                InkWell(
-                  onTap: (){},
-                  child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(50)),
-                
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image(image: AssetImage("assets/images/Google.png"), width: 30,),
-                        SizedBox(width: 12),
-                        Text('Login with Google'),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: 18,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: const Text("New to Logistics?"),
+                      child: const Text("Joined us before?"),
                     ),
                     GestureDetector(
                       onTap: () {},
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 8),
                         child: const Text(
-                          "Register",
+                          " Login",
                           style: TextStyle(
                               color: Colors.blueAccent,
                               fontWeight: FontWeight.bold),

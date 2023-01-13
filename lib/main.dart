@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:tourism_app/screens/onboard_screen_1.dart';
-import 'package:tourism_app/screens/onboard_screen_2.dart';
+import 'package:tourism_app/screens/login_screen.dart';
+import 'package:tourism_app/screens/onboarding_screen/onboard_screen_1.dart';
+import 'package:tourism_app/screens/signup_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: OnboardScreen1(),
+      home: SignupScreen(),
     );
   }
 }

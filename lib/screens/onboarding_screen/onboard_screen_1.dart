@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tourism_app/screens/onboard_screen_2.dart';
-import 'package:tourism_app/screens/onboard_screen_3.dart';
-import 'package:tourism_app/utils/buttons.dart';
+import 'package:tourism_app/screens/login_screen.dart';
+import 'package:tourism_app/screens/onboarding_screen/onboard_screen_2.dart';
+import 'package:tourism_app/screens/onboarding_screen/onboard_screen_3.dart';
 
-import 'login_screen.dart';
+import 'utils/buttons.dart';
 
 class OnboardScreen1 extends StatefulWidget {
   const OnboardScreen1({super.key});
@@ -14,7 +14,9 @@ class OnboardScreen1 extends StatefulWidget {
 
 class _OnboardScreen1State extends State<OnboardScreen1> {
   @override
+  
   Widget build(BuildContext context) {
+    double wid = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -43,13 +45,13 @@ class _OnboardScreen1State extends State<OnboardScreen1> {
                   "Get Ready For New Adventures",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: wid* 0.09,
                       fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20),
                 Text(
                   "Pack your things and make more memories Outdoor.",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                  style: TextStyle(color: Colors.white, fontSize: wid*0.05),
                 ),
                 SizedBox(height: 100),
                 Row(
@@ -60,7 +62,7 @@ class _OnboardScreen1State extends State<OnboardScreen1> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => OnboardScreen3(),
+                            builder: (context) => LoginScreen(),
                           ),
                         );
                       },
