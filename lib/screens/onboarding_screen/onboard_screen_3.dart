@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tourism_app/screens/login_screen.dart';
+import 'package:tourism_app/screens/authscreens/emaillogin_screen.dart';
+import 'package:tourism_app/screens/authscreens/welcome_screen.dart';
 import 'package:tourism_app/screens/onboarding_screen/utils/buttons.dart';
 
 class OnboardScreen3 extends StatefulWidget {
@@ -56,7 +57,7 @@ class _OnboardScreen3State extends State<OnboardScreen3> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => LoginScreen(),
+                          builder: (context) => WelcomeScreen(),
                         ),
                       );
                     },

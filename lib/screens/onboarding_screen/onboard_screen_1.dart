@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tourism_app/screens/login_screen.dart';
+import 'package:tourism_app/screens/authscreens/emaillogin_screen.dart';
+import 'package:tourism_app/screens/authscreens/welcome_screen.dart';
 import 'package:tourism_app/screens/onboarding_screen/onboard_screen_2.dart';
 import 'package:tourism_app/screens/onboarding_screen/onboard_screen_3.dart';
 
@@ -62,7 +63,7 @@ class _OnboardScreen1State extends State<OnboardScreen1> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LoginScreen(),
+                            builder: (context) => WelcomeScreen(),
                           ),
                         );
                       },

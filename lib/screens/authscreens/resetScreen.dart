@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:lottie/lottie.dart';
+import 'package:tourism_app/screens/homeScreen.dart';
 import 'package:tourism_app/widgets/text_field_input.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class ResetScreen extends StatefulWidget {
+  const ResetScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<ResetScreen> createState() => _ResetScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
+class _ResetScreenState extends State<ResetScreen> {
   final TextEditingController _repassController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
   bool _isLoading = false;
@@ -27,9 +26,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   void dispose() {
-    _emailController.dispose();
     _passController.dispose();
-    _nameController.dispose();
     _repassController.dispose();
     super.dispose();
   }
@@ -53,29 +50,18 @@ class _SignupScreenState extends State<SignupScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Lottie.asset("animations/signup.json", width: 250),
+                Lottie.asset("animations/reset.json", width: 250),
                 const SizedBox(
                   height: 15,
                 ),
-                Row(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "Signup",
+                      "Reset Password",
                       style: TextStyle(fontSize: 40),
                     ),
                   ],
-                ),
-                TextFieldInput(
-                  textEditingController: _emailController,
-                  LabelText: "Name",
-                  textInputType: TextInputType.emailAddress,
-                ),
-                SizedBox(height: 24,),
-                TextFieldInput(
-                  textEditingController: _emailController,
-                  LabelText: "Email ID",
-                  textInputType: TextInputType.emailAddress,
                 ),
                 const SizedBox(
                   height: 24,
@@ -131,20 +117,16 @@ class _SignupScreenState extends State<SignupScreen> {
                   height: 15,
                 ),
                 
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Text("By signing up you're agree to our ", style: TextStyle(fontSize: 10, color: Colors.black.withOpacity(0.9)),),
-                        Text("Terms & Conditions", style: TextStyle(fontSize: 10, color: Colors.blueAccent),), Text(" and ", style: TextStyle(fontSize: 10, color: Colors.black.withOpacity(0.9)),)
-                      ],
-                    ),
-                    Text("Privacy Policy", style: TextStyle(fontSize: 10, color: Colors.blueAccent),)
-                  ],
-                ),
                 SizedBox(height: 20,),
                 InkWell(
-                  onTap: (() {}),
+                  onTap: (() {
+                    Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ),
+                        );
+                  }),
                   child: Container(
                     width: double.infinity,
                     alignment: Alignment.center,
@@ -158,31 +140,6 @@ class _SignupScreenState extends State<SignupScreen> {
                     child: Text("Continue"),
                   ),
                 ),
-                
-                SizedBox(
-                  height: 18,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: const Text("Joined us before?"),
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        child: const Text(
-                          " Login",
-                          style: TextStyle(
-                              color: Colors.blueAccent,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    )
-                  ],
-                )
               ],
             ),
           )

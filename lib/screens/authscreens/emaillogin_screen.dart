@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:lottie/lottie.dart';
+import 'package:tourism_app/screens/authscreens/forgot_screen.dart';
+import 'package:tourism_app/screens/authscreens/signup_screen.dart';
+import 'package:tourism_app/screens/homeScreen.dart';
 import 'package:tourism_app/widgets/text_field_input.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class EmailLoginScreen extends StatefulWidget {
+  const EmailLoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<EmailLoginScreen> createState() => _EmailLoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _EmailLoginScreenState extends State<EmailLoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
   bool _isLoading = false;
@@ -49,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Lottie.asset("animations/hello.json", width: 250),
+                Lottie.asset("animations/emaillogin.json", width: 250),
                 const SizedBox(
                   height: 15,
                 ),
@@ -97,7 +100,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ForgotScreen(),
+                          ),
+                        );
+                      },
                       child: Text(
                         "Forgot Password ?",
                         style: TextStyle(
@@ -111,7 +121,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 15,
                 ),
                 InkWell(
-                  onTap: (() {}),
+                  onTap: (() {
+                    Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ),
+                        );
+                  }),
                   child: Container(
                     width: double.infinity,
                     alignment: Alignment.center,
@@ -161,7 +178,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: const Text("New to Logistics?"),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignupScreen(),
+                          ),
+                        );
+                      },
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 8),
                         child: const Text(

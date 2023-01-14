@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tourism_app/screens/login_screen.dart';
-import 'package:tourism_app/screens/onboarding_screen/onboard_screen_1.dart';
-import 'package:tourism_app/screens/signup_screen.dart';
+import 'package:tourism_app/screens/onboarding_screen/onboard_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SignupScreen(),
+      home: Onbording(),
     );
   }
 }
