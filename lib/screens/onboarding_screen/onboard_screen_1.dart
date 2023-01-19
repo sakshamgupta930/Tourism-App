@@ -4,7 +4,7 @@ import 'package:tourism_app/screens/authscreens/welcome_screen.dart';
 import 'package:tourism_app/screens/onboarding_screen/onboard_screen_2.dart';
 import 'package:tourism_app/screens/onboarding_screen/onboard_screen_3.dart';
 
-import 'utils/buttons.dart';
+import '../../widgets/buttons.dart';
 
 class OnboardScreen1 extends StatefulWidget {
   const OnboardScreen1({super.key});

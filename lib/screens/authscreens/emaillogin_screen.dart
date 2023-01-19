@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tourism_app/screens/authscreens/forgot_screen.dart';
 import 'package:tourism_app/screens/authscreens/signup_screen.dart';
-import 'package:tourism_app/screens/homeScreen.dart';
+import 'package:tourism_app/screens/bottomnavbar.dart';
 import 'package:tourism_app/widgets/text_field_input.dart';
 
 class EmailLoginScreen extends StatefulWidget {
@@ -59,7 +59,10 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text("Login", style: TextStyle(fontSize: 40),),
+                    Text(
+                      "Login",
+                      style: TextStyle(fontSize: 40),
+                    ),
                   ],
                 ),
                 TextFieldInput(
@@ -100,7 +103,7 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -123,11 +126,11 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
                 InkWell(
                   onTap: (() {
                     Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
-                          ),
-                        );
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BottomNavBar(),
+                      ),
+                    );
                   }),
                   child: Container(
                     width: double.infinity,
@@ -150,26 +153,32 @@ class _EmailLoginScreenState extends State<EmailLoginScreen> {
                   Text("OR"),
                   Expanded(child: Divider()),
                 ]),
-                SizedBox(height: 18,),
+                SizedBox(
+                  height: 18,
+                ),
                 InkWell(
-                  onTap: (){},
+                  onTap: () {},
                   child: Container(
                     height: 50,
                     decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(50)),
-                
+                        color: Colors.grey.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(50)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image(image: AssetImage("assets/images/Google.png"), width: 30,),
+                        Image(
+                          image: AssetImage("assets/images/Google.png"),
+                          width: 30,
+                        ),
                         SizedBox(width: 12),
                         Text('Login with Google'),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: 18,),
+                SizedBox(
+                  height: 18,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

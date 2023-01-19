@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tourism_app/screens/authscreens/welcome_screen.dart';
-import 'package:tourism_app/screens/homeScreen.dart';
+import 'package:tourism_app/screens/bottomnavbar.dart';
 import 'package:tourism_app/screens/onboarding_screen/content_model.dart';
 
 class Onbording extends StatefulWidget {

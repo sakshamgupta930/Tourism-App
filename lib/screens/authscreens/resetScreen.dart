@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:lottie/lottie.dart';
-import 'package:tourism_app/screens/homeScreen.dart';
+import 'package:tourism_app/screens/bottomnavbar.dart';
 import 'package:tourism_app/widgets/text_field_input.dart';
 
 class ResetScreen extends StatefulWidget {
@@ -123,7 +123,7 @@ class _ResetScreenState extends State<ResetScreen> {
                     Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
+                            builder: (context) => BottomNavBar(),
                           ),
                         );
                   }),

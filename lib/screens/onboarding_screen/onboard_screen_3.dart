@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tourism_app/screens/authscreens/emaillogin_screen.dart';
 import 'package:tourism_app/screens/authscreens/welcome_screen.dart';
-import 'package:tourism_app/screens/onboarding_screen/utils/buttons.dart';
+import 'package:tourism_app/widgets/buttons.dart';
 
 class OnboardScreen3 extends StatefulWidget {
   const OnboardScreen3({super.key});
