@@ -1,11 +1,5 @@
-import 'dart:ui';
-
 import 'package:appbar_animated/appbar_animated.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:tourism_app/utils/colors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 fit: BoxFit.cover,
               ),
               Container(
+                height: 1000,
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 margin: EdgeInsets.only(
                   top: MediaQuery.of(context).size.height * 0.26,
@@ -67,6 +62,33 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
+                    SizedBox(height: 30),
+                    Container(
+                      height: 180,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          makeDestination(
+                              image: 'assets/images/gwalior.jpg',
+                              title: "Gwalior"),
+                          makeDestination(
+                              image: 'assets/images/manali.jpg',
+                              title: "Manali"),
+                          makeDestination(
+                            image: 'assets/images/bhopal.jpg',
+                            title: "Bhopal",
+                          ),
+                          makeDestination(
+                            image: 'assets/images/hamburg.jpg',
+                            title: "Hamburg",
+                          ),
+                          makeDestination(
+                            image: 'assets/images/dubai.jpg',
+                            title: "Dubai",
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -88,7 +110,6 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {},
               icon: Icon(
                 Icons.search_sharp,
-                // color: colorAnimated.color,
               ),
             ),
             IconButton(
@@ -101,6 +122,45 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ],
+    );
+  }
+
+  Widget makeDestination({image, title}) {
+    return AspectRatio(
+      aspectRatio: 3 / 2.4,
+      child: Container(
+        margin: EdgeInsets.only(right: 20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image: DecorationImage(
+            image: AssetImage(image),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Container(
+          padding: EdgeInsets.all(10.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            gradient: LinearGradient(
+              begin: Alignment.bottomRight,
+              colors: [
+                Colors.black.withOpacity(0.8),
+                Colors.black.withOpacity(0.0),
+              ],
+            ),
+          ),
+          child: Align(
+            child: Text(
+              title,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16),
+            ),
+            alignment: Alignment.bottomLeft,
+          ),
+        ),
+      ),
     );
   }
 }
