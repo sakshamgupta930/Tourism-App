@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:tourism_app/screens/ReelScreen.dart';
+import 'package:tourism_app/screens/drawerscreen.dart';
+import 'package:tourism_app/screens/home.dart';
 import 'package:tourism_app/screens/homeScreen.dart';
 import 'package:tourism_app/screens/likeScreen.dart';
 import 'package:tourism_app/screens/profileScreen.dart';
@@ -17,8 +19,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   int _page = 0;
   final screens = [
-    HomeScreen(),
-    SearchScreen(),
+    Stack(
+      children: [
+        DrawerScreen(),
+        home(),
+      ],
+    ),
+    searchscreen(),
     ReelsScreen(),
     LikeScreen(),
     ProfileScreen(),

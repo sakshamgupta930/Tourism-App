@@ -6,6 +6,10 @@ import 'package:tourism_app/screens/authscreens/emaillogin_screen.dart';
 import 'package:tourism_app/screens/authscreens/otpscreen.dart';
 import 'package:tourism_app/screens/authscreens/phone_no_screen.dart';
 import 'package:tourism_app/screens/authscreens/signup_screen.dart';
+import 'package:tourism_app/screens/bottomnavbar.dart';
+import 'package:tourism_app/screens/drawerscreen.dart';
+import 'package:tourism_app/screens/home.dart';
+import 'package:tourism_app/screens/homeScreen.dart';
 import 'package:tourism_app/widgets/text_field_input.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -142,6 +146,23 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                     child: Text("New User?", style: TextStyle(color: Colors.white, fontSize: 20),),
                   ),
+                ),
+                SizedBox(height: 25,),
+                InkWell(
+                  onTap: (() {
+                    Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Stack(
+                              children: [
+                                DrawerScreen(),
+                                BottomNavBar()
+                              ],
+                            ),
+                          ),
+                        );
+                  }),
+                  child: Text("Skip>>", style: TextStyle(color: Colors.black, fontSize: 20),),
                 ),
               ],
             ),
