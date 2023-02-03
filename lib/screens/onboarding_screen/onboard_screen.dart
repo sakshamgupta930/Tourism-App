@@ -76,39 +76,56 @@ class _OnbordingState extends State<Onbording> {
                           ),
                           SizedBox(height: 100),
                           Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                content.length,
-                (index) => buildDot(index, context),
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              if (currentIndex == content.length - 1) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => WelcomeScreen(),
-                    ),
-                  );
-                }
-                _controller.nextPage(
-                  duration: Duration(milliseconds: 100),
-                  curve: Curves.bounceIn,
-                );
-            },
-            child: Container(
-              height: 60,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.yellow),
-              margin: EdgeInsets.all(40),
-              width: double.infinity,
-                child: Text(
-                    currentIndex == content.length - 1 ? "Continue" : "Next", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400, color: Colors.white),),
-              ),
-          ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: List.generate(
+                                content.length,
+                                (index) => buildDot(index, context),
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              if (currentIndex == content.length - 1) {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => WelcomeScreen(),
+                                  ),
+                                );
+                              }
+                              _controller.nextPage(
+                                duration: Duration(milliseconds: 100),
+                                curve: Curves.bounceIn,
+                              );
+                            },
+                            child: Container(
+                              height: 60,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Color(0xffffd84d)),
+                              margin: EdgeInsets.all(40),
+                              width: double.infinity,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    currentIndex == content.length - 1
+                                        ? "Continue"
+                                        : "Next",
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  SizedBox(width: 10),
+                                  Icon(Icons.forward),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -129,7 +146,7 @@ class _OnbordingState extends State<Onbording> {
       margin: EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Colors.yellow,
+        color: Colors.white,
       ),
     );
   }
