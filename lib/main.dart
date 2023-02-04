@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tourism_app/screens/IISerarchScreen.dart';
 import 'package:tourism_app/screens/onboarding_screen/onboard_screen.dart';
+import 'package:tourism_app/screens/search/searchScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Onbording(),
+      home: Scaffold(body: Onbording()),
     );
   }
 }

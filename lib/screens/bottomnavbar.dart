@@ -6,7 +6,7 @@ import 'package:tourism_app/screens/home.dart';
 import 'package:tourism_app/screens/homeScreen.dart';
 import 'package:tourism_app/screens/likeScreen.dart';
 import 'package:tourism_app/screens/profileScreen.dart';
-import 'package:tourism_app/screens/searchScreen.dart';
+import 'package:tourism_app/screens/search/searchScreen.dart';
 
 class BottomNavBar extends StatefulWidget {
   BottomNavBar({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         home(),
       ],
     ),
-    searchscreen(),
+    searchScreen(),
     ReelsScreen(),
     LikeScreen(),
     ProfileScreen(),
