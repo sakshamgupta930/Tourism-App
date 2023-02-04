@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:tourism_app/reel/ReelScreen.dart';
 import 'package:tourism_app/screens/ReelScreen.dart';
 import 'package:tourism_app/screens/drawerscreen.dart';
 import 'package:tourism_app/screens/home.dart';
 import 'package:tourism_app/screens/homeScreen.dart';
 import 'package:tourism_app/screens/likeScreen.dart';
 import 'package:tourism_app/screens/profileScreen.dart';
-import 'package:tourism_app/screens/search/searchScreen.dart';
+import 'package:tourism_app/screens/searchScreen.dart';
 
 class BottomNavBar extends StatefulWidget {
   BottomNavBar({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ],
     ),
     searchScreen(),
-    ReelsScreen(),
+    reelScreen(),
     LikeScreen(),
     ProfileScreen(),
   ];
