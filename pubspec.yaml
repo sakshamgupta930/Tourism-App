@@ -41,7 +41,7 @@ dependencies:
   flutter_zoom_drawer: ^3.0.3
   google_fonts: ^3.0.1
   lottie: ^2.2.0
-  pinput: ^2.2.0
+  pinput: ^2.2.23
   shared_preferences: ^0.5.7+3
   video_player: ^2.5.1
 

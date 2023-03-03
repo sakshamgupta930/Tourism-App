@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:appbar_animated/appbar_animated.dart';
+
 class home extends StatefulWidget {
   @override
   _homeState createState() => _homeState();
@@ -8,20 +9,19 @@ class home extends StatefulWidget {
 class _homeState extends State<home> {
   double xOffset = 0;
   double yOffset = 0;
-
+  double scaleFactor = 1;
   bool isDrawerOpen = false;
 
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
-        ..scale(isDrawerOpen ? 0.85 : 1.00)
-        ..rotateZ(isDrawerOpen ? -50 : 0),
-      duration: Duration(milliseconds: 200),
+        ..scale(scaleFactor)
+        ..rotateY(isDrawerOpen ? -0.5 : 0),
+      duration: Duration(milliseconds: 250),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius:
-            isDrawerOpen ? BorderRadius.circular(40) : BorderRadius.circular(0),
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0),
       ),
       child: SafeArea(
         child: SingleChildScrollView(
@@ -42,92 +42,93 @@ class _homeState extends State<home> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     isDrawerOpen
-                        ? GestureDetector(
-                            child: Icon(Icons.arrow_back_ios),
-                            onTap: () {
+                        ? IconButton(
+                            onPressed: () {
                               setState(() {
                                 xOffset = 0;
                                 yOffset = 0;
+                                scaleFactor = 1;
                                 isDrawerOpen = false;
                               });
                             },
+                            icon: Icon(Icons.arrow_back_ios),
                           )
-                        : GestureDetector(
-                            child: Icon(Icons.menu),
-                            onTap: () {
+                        : IconButton(
+                            onPressed: () {
                               setState(() {
-                                xOffset = 290;
-                                yOffset = 80;
+                                xOffset = 230;
+                                yOffset = 150;
+                                scaleFactor = 0.6;
                                 isDrawerOpen = true;
                               });
                             },
+                            icon: Icon(Icons.menu),
                           ),
-              //             Container(
-              //   height: 1000,
-              //   padding: EdgeInsets.symmetric(horizontal: 20),
-              //   margin: EdgeInsets.only(
-              //     top: MediaQuery.of(context).size.height * 0.26,
-              //   ),
-              //   child: Column(
-              //     children: [
-              //       Text(
-              //         "What you would like to find ?",
-              //         style:
-              //             TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-              //       ),
-              //       SizedBox(height: 30),
-              //       Row(
-              //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //         children: [
-              //           Text(
-              //             "Top Destinations",
-              //             style: TextStyle(
-              //                 fontSize: 20, fontWeight: FontWeight.bold),
-              //           ),
-              //           GestureDetector(
-              //             onTap: () => print('See All'),
-              //             child: Text(
-              //               "See All",
-              //               style: TextStyle(
-              //                 fontSize: 14,
-              //                 fontWeight: FontWeight.w500,
-              //                 color: Colors.blue,
-              //               ),
-              //             ),
-              //           ),
-              //         ],
-              //       ),
-              //       SizedBox(height: 30),
-              //       Container(
-              //         height: 180,
-              //         child: ListView(
-              //           scrollDirection: Axis.horizontal,
-              //           children: [
-              //             makeDestination(
-              //                 image: 'assets/images/gwalior.jpg',
-              //                 title: "Gwalior"),
-              //             makeDestination(
-              //                 image: 'assets/images/manali.jpg',
-              //                 title: "Manali"),
-              //             makeDestination(
-              //               image: 'assets/images/bhopal.jpg',
-              //               title: "Bhopal",
-              //             ),
-              //             makeDestination(
-              //               image: 'assets/images/hamburg.jpg',
-              //               title: "Hamburg",
-              //             ),
-              //             makeDestination(
-              //               image: 'assets/images/dubai.jpg',
-              //               title: "Dubai",
-              //             ),
-              //           ],
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              
+                    //             Container(
+                    //   height: 1000,
+                    //   padding: EdgeInsets.symmetric(horizontal: 20),
+                    //   margin: EdgeInsets.only(
+                    //     top: MediaQuery.of(context).size.height * 0.26,
+                    //   ),
+                    //   child: Column(
+                    //     children: [
+                    //       Text(
+                    //         "What you would like to find ?",
+                    //         style:
+                    //             TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                    //       ),
+                    //       SizedBox(height: 30),
+                    //       Row(
+                    //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //         children: [
+                    //           Text(
+                    //             "Top Destinations",
+                    //             style: TextStyle(
+                    //                 fontSize: 20, fontWeight: FontWeight.bold),
+                    //           ),
+                    //           GestureDetector(
+                    //             onTap: () => print('See All'),
+                    //             child: Text(
+                    //               "See All",
+                    //               style: TextStyle(
+                    //                 fontSize: 14,
+                    //                 fontWeight: FontWeight.w500,
+                    //                 color: Colors.blue,
+                    //               ),
+                    //             ),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //       SizedBox(height: 30),
+                    //       Container(
+                    //         height: 180,
+                    //         child: ListView(
+                    //           scrollDirection: Axis.horizontal,
+                    //           children: [
+                    //             makeDestination(
+                    //                 image: 'assets/images/gwalior.jpg',
+                    //                 title: "Gwalior"),
+                    //             makeDestination(
+                    //                 image: 'assets/images/manali.jpg',
+                    //                 title: "Manali"),
+                    //             makeDestination(
+                    //               image: 'assets/images/bhopal.jpg',
+                    //               title: "Bhopal",
+                    //             ),
+                    //             makeDestination(
+                    //               image: 'assets/images/hamburg.jpg',
+                    //               title: "Hamburg",
+                    //             ),
+                    //             makeDestination(
+                    //               image: 'assets/images/dubai.jpg',
+                    //               title: "Dubai",
+                    //             ),
+                    //           ],
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -202,6 +203,7 @@ class _homeState extends State<home> {
       ),
     );
   }
+
   Widget _appBar(BuildContext context, ColorAnimated colorAnimated) {
     return AppBar(
       backgroundColor: colorAnimated.background,
@@ -227,6 +229,7 @@ class _homeState extends State<home> {
       ],
     );
   }
+
   Widget makeDestination({image, title}) {
     return AspectRatio(
       aspectRatio: 3 / 2.4,
